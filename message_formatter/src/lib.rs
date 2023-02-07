@@ -65,7 +65,7 @@ fn create_trader_capital(eur: f32, usd: f32, yuan: f32, yen: f32) {
         yuan,
         yen
     };
-    let s = serde_json::to_string(&structure);
+    let s = to_string(&structure);
     match s {
         Ok(s) => println!("TraderCapital-{}", s),
         _ => {}
@@ -91,7 +91,7 @@ fn create_sell_buy_rates_vec(v_tuple: Vec<(String, f32, f32, f32, f32)>) {
         structure.v.push(st);
     }
 
-    let s = serde_json::to_string(&structure);
+    let s = to_string(&structure);
     match s {
         Ok(s) => println!("SellBuyRates-{}", s),
         _ => {}
@@ -105,7 +105,7 @@ fn create_sell_buy_transaction(transaction: SellBuy, name: String, currency: Cur
         currency,
         amount
     };
-    let s = serde_json::to_string(&structure);
+    let s = to_string(&structure);
     match s {
         Ok(s) => println!("SellBuyTransaction-{}", s),
         _ => {}
@@ -116,7 +116,7 @@ fn create_other(s: String) {
     let structure = OtherStruct {
         s,
     };
-    let s = serde_json::to_string(&structure);
+    let s = to_string(&structure);
     match s {
         Ok(s) => println!("Other-{}", s),
         _ => {}
