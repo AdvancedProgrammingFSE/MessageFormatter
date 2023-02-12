@@ -68,7 +68,7 @@ pub fn create_trader_capital(eur: f64, usd: f64, yuan: f64, yen: f64) {
     };
     let s = to_string(&structure);
     match s {
-        Ok(s) => println!("TraderCapital-{}", s),
+        Ok(s) => println!("{}", s),
         _ => {}
     }
 }
@@ -83,7 +83,7 @@ pub fn create_sell_buy_rates(name: String, eur: (f64, f64), usd: (f64, f64), yua
     }
 }
 
-fn create_sell_buy_rates_vec(v_tuple: Vec<(String, (f64, f64), (f64, f64), (f64, f64), (f64, f64))>) {
+pub fn create_sell_buy_rates_vec(v_tuple: Vec<(String, (f64, f64), (f64, f64), (f64, f64), (f64, f64))>) {
     let mut structure = SellBuyRatesVec {
         v: Vec::new(),
     };
@@ -94,12 +94,12 @@ fn create_sell_buy_rates_vec(v_tuple: Vec<(String, (f64, f64), (f64, f64), (f64,
 
     let s = to_string(&structure);
     match s {
-        Ok(s) => println!("SellBuyRates-{}", s),
+        Ok(s) => println!("{}", s),
         _ => {}
     }
 }
 
-fn create_sell_buy_transaction(transaction: SellBuy, name: String, currency: Currency, amount: f64) {
+pub fn create_sell_buy_transaction(transaction: SellBuy, name: String, currency: Currency, amount: f64) {
     let structure = SellBuyTransactionStruct {
         transaction,
         name,
@@ -108,7 +108,7 @@ fn create_sell_buy_transaction(transaction: SellBuy, name: String, currency: Cur
     };
     let s = to_string(&structure);
     match s {
-        Ok(s) => println!("SellBuyTransaction-{}", s),
+        Ok(s) => println!("{}", s),
         _ => {}
     }
 }
@@ -119,7 +119,7 @@ fn create_other(s: String) {
     };
     let s = to_string(&structure);
     match s {
-        Ok(s) => println!("Other-{}", s),
+        Ok(s) => println!("{}", s),
         _ => {}
     }
 }
@@ -131,3 +131,5 @@ pub fn send_message(op: Operation) {
         Operation::Other(s) => create_other(s),
     }
 }
+
+
